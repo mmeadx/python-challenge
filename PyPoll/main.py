@@ -9,6 +9,7 @@ election_data = os.path.join("Resources", "election_data.csv")
 
 TotalVotes = 0
 
+
 #read budget_data.csv
 with open(election_data, 'r') as csvfile:
 
@@ -21,5 +22,16 @@ with open(election_data, 'r') as csvfile:
     for line in csvreader:
 
         TotalVotes = TotalVotes + 1 #Finding total number of votes
+        
+        #Count Votes
+        
+            
+#Print results
 
+print('') #spacing away from command line
+print('Election Results')
+print('-------------------------')
 print(f'Total Votes: {TotalVotes}')
+print('-------------------------')
+
+
