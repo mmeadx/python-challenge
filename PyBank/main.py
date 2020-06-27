@@ -65,6 +65,8 @@ print(f'Greatest Increase in Profits: (${prof_incr})')
 print(f'Greatest Decrease in Profits: (${prof_decr})')
 print('') #Spacing
 
+#-----Write to analysis file-----
+
 with open(budget_analysis, 'w') as csvfile:
 
     csvwriter = csv.writer(csvfile, delimiter=',')
@@ -76,3 +78,15 @@ with open(budget_analysis, 'w') as csvfile:
     csvwriter.writerow(f'Average Change: ${average_change}')
     csvwriter.writerow(f'Greatest Increase in Profits: (${prof_incr})')
     csvwriter.writerow(f'Greatest Decrease in Profits: (${prof_decr})')
+
+f = open("budget_analysis.txt", 'w')
+
+f.write('Financial Analysis\n')
+f.write('----------------------------\n')
+f.write(f'Total Months: {TotalMonths}\n')
+f.write(f'Total: ${Total}\n')
+f.write(f'Average Change: ${average_change}\n')
+f.write(f'Greatest Increase in Profits: (${prof_incr})\n')
+f.write(f'Greatest Decrease in Profits: (${prof_decr})\n')
+f.close()
+
