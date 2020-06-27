@@ -36,6 +36,7 @@ with open(budget_data, 'r') as csvfile:
         old = int(line[1]) #setting current to old
     
     del IncrDecr[0]
+    #print(IncrDecr) #test the list
 
     #----Find the Average Change----
     total = sum(IncrDecr) #Add up all change values
@@ -47,7 +48,12 @@ with open(budget_data, 'r') as csvfile:
     #----Find Max and Min Increase in profits----
     prof_incr = max(IncrDecr)
     prof_decr = min(IncrDecr)
-            
+
+    #----Find where the Max and Min Increase are on the list to compare to dates
+    index_incr = IncrDecr.index(prof_incr)
+    #print('index increase is', index_incr) - checking increase index value
+    index_decr = IncrDecr.index(prof_decr)
+    #print('index decrease is', index_decr) - checking decrease index value
 
 print('') #Spacing
 print('Financial Analysis')
@@ -55,8 +61,8 @@ print('----------------------------')
 print(f'Total Months: {TotalMonths}')
 print(f'Total: ${Total}')
 print(f'Average Change: ${average_change}')
-print(f'Greatest Increase in Profits: $({prof_incr})')
-print(f'Greatest Decrease in Profits: $({prof_decr})')
+print(f'Greatest Increase in Profits: (${prof_incr})')
+print(f'Greatest Decrease in Profits: (${prof_decr})')
 print('') #Spacing
 
 with open(budget_analysis, 'w') as csvfile:
@@ -67,3 +73,6 @@ with open(budget_analysis, 'w') as csvfile:
     csvwriter.writerow(['----------------------------'])
     csvwriter.writerow([f'Total Months: {TotalMonths}'])
     csvwriter.writerow([f'Total: ${Total}'])
+    csvwriter.writerow(f'Average Change: ${average_change}')
+    csvwriter.writerow(f'Greatest Increase in Profits: (${prof_incr})')
+    csvwriter.writerow(f'Greatest Decrease in Profits: (${prof_decr})')
