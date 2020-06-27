@@ -17,9 +17,6 @@ old = 0
 
 #Create List for Increase/Decrease
 IncrDecr = []
-
-#Function that returns average for a list of numbers
-
                  
 #read budget_data.csv
 with open(budget_data, 'r') as csvfile:
@@ -38,8 +35,18 @@ with open(budget_data, 'r') as csvfile:
         Total = Total + int(line[1]) #Finding Net Profit/Loss
         old = int(line[1]) #setting current to old
     
-    print(f'List of Increases and Decreases : {IncrDecr}')
+    del IncrDecr[0]
 
+    #----Find the Average Change----
+    total = sum(IncrDecr) #Add up all change values
+    #print(total) - checking change total
+
+    average_change = total / (TotalMonths - 1) #change total divided by Total Months minus one 
+    #print(average_change) - checking average 
+    
+    #----Find Max and Min Increase in profits----
+    prof_incr = max(IncrDecr)
+    prof_decr = min(IncrDecr)
             
 
 print('') #Spacing
@@ -47,9 +54,9 @@ print('Financial Analysis')
 print('----------------------------')
 print(f'Total Months: {TotalMonths}')
 print(f'Total: ${Total}')
-#print(f'Average Change: ${(average(IncrDecr))}')
-print('Greatest Increase in Profits: ')
-print('Greatest Decrease in Profits: ')
+print(f'Average Change: ${average_change}')
+print(f'Greatest Increase in Profits: $({prof_incr})')
+print(f'Greatest Decrease in Profits: $({prof_decr})')
 print('') #Spacing
 
 with open(budget_analysis, 'w') as csvfile:
