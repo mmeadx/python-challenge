@@ -67,18 +67,6 @@ print('') #Spacing
 
 #-----Write to analysis file-----
 
-with open(budget_analysis, 'w') as csvfile:
-
-    csvwriter = csv.writer(csvfile, delimiter=',')
-
-    csvwriter.writerow(['Financial Analysis'])
-    csvwriter.writerow(['----------------------------'])
-    csvwriter.writerow([f'Total Months: {TotalMonths}'])
-    csvwriter.writerow([f'Total: ${Total}'])
-    csvwriter.writerow(f'Average Change: ${average_change}')
-    csvwriter.writerow(f'Greatest Increase in Profits: (${prof_incr})')
-    csvwriter.writerow(f'Greatest Decrease in Profits: (${prof_decr})')
-
 f = open("budget_analysis.txt", 'w')
 
 f.write('Financial Analysis\n')
